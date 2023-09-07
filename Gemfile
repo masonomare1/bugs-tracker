@@ -50,13 +50,12 @@ gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'faker'
 
 #  for search fucntionaly
-gem 'ransack'
-
 gem 'devise'
 gem 'pundit'
-
-
+gem 'ransack'
 gem 'rolify'
+gem 'rubocop-performance', require: false
+gem 'rubocop-rails'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -70,8 +69,8 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'rubocop-performance', require: false
   gem 'web-console'
-
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

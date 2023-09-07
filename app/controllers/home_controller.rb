@@ -1,19 +1,11 @@
 # frozen_string_literal: true
 
+# this is the home controller
 class HomeController < ApplicationController
-  def index
-    @projects = Project.all
-  end
+  def index; end
 
   def show
-    @user = User.all
-    # @projects = @user.projects
-    authorize @user
+    @projects = policy_scope(Project)
+    authorize @projects
   end
-
-  def create
-
-  end
-
-
 end

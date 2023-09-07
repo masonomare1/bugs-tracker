@@ -1,16 +1,27 @@
-class ProjectPolicy < ApplicationPolicy
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    def resolve
-      if user.user_type.in?(['manager', 'developer'])
-        scope.all
-      else
-        scope.where('title':"c# winform projects")
-      end
+# frozen_string_literal: true
 
+# this is policy controller
+class ProjectPolicy < ApplicationPolicy
+  # this is policy controller
+  class Scope < Scope
+    def resolve
+      if user.user_type.in?(%w[qa manager])
+        scope.all
+      elsif user.user_type.in?(%w[developer])
+        @projects_dev = user.projects
+        scope.where(title: @projects_dev.pluck(:title))
+      else
+        Rails.logger.debug 'hello wrold'
+        scope.where(title: 'c# winform project')
+      end
     end
   end
-  def index
+
+  def index?
+    true
   end
 
+  def show?
+    true
+  end
 end

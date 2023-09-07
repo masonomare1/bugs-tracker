@@ -1,28 +1,59 @@
 <br>
-<div class="container">
-  <div class="row">
-     <% @projects.each do |project| %>
-    <div class="col-md-2"></div>
-
-      <div class="col-md-8 pb-3">
-      <div class="card">
-        <div class="card-header">
-          Projects # <%= project.id%>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"> <%= project.title%> </h5>
-
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+<% if current_user %>
+<% if current_user.user_type == "manager" %>
+<div class="container ">
+  <div class="card text-center w-75">
+    <div class="card-header">
+      Add User To Project
     </div>
-    <div class="col-md-2"></div>
-    <% end %>
+    <div class="card-body">
+      <h5 class="card-title">Manager Add user to Project</h5>
+      <%= link_to 'Show Projects', '/home/show', class:"btn btn-primary" %>
+    </div>
   </div>
 </div>
+<br>
 
+<div class="container ">
+  <div class="card text-center w-75">
+    <div class="card-header">
+      Show all Projects
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Show Projects to Manager</h5>
+      <%= link_to 'Show Projects', projects_path, class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<br>
 
-
-
-
-
+<div class="container ">
+  <div class="card text-center w-75">
+    <div class="card-header">
+      Create Project
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Manager create Project</h5>
+      <%= link_to 'Show Projects', projects_path, class:"btn btn-primary" %>
+    </div>
+  </div>
+</div>
+<%end  %>
+<%end  %>
+<br>
+<% if current_user %>
+<% if current_user.user_type == 'developer' %>
+  <div class="container">
+    <div class="card text-center w-75">
+      <div class="card-header">
+        Show all Projects
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Show Projects to Developer</h5>
+        <%= link_to 'Show Projects', projects_path, class:"btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+  <br>
+<%end  %>
+<%end  %>

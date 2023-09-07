@@ -9,6 +9,6 @@ ActiveRecord::Base.transaction do
       password: 'password'
     )
 
-    puts "User #{i + 1} has been created"
+    Rails.logger.debug { "User #{i + 1} has been created" }
   end
 end

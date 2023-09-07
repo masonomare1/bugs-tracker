@@ -1,0 +1,38 @@
+
+<div class="container border border-4 my-2 w-75" >
+ <h1 class="text-center">Add Bug</h1>
+ <%= form_with(model: [@bug,@project.bugs.build], url: project_bugs_path(@project)) do |form| %>
+  <div class="field form-group">
+    <%= form.label :bug_title %>
+    <%= form.text_field :bug_title, class:"form-control"%>
+  </div>
+
+  <div class="field my-2">
+    <%= form.label :deadline %>
+    <%= form.datetime_field :deadline, class:"form-control" %>
+  </div>
+
+  <div class="field my-2">
+    <%= form.label :type %>
+
+   <%= form.select(:type,options_for_select([['feature','feature'],['bug','bug']])) %>
+  </div>
+
+  <div class="field my-2" >
+    <%= form.label :status %>
+    <%= form.select(:status,options_for_select([['new','new'],['started','started']])) %>
+  </div>
+
+
+  <div class="field d-none my-2">
+    <%= form.label :dev_id %>
+    <%= form.number_field :dev_id, value: '33', class:"form-control" %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit "Add Bug/Feature",class:"btn btn-primary" %>
+  </div>
+<% end %>
+</div>

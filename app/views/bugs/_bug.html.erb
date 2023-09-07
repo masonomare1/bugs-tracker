@@ -1,0 +1,20 @@
+<div class="jumbotron mx-4 border">
+<h1 > <span class="badge bg-danger"><%= bug.status%></span></h1>
+  <h1 class="display-4 "><%= bug.type%> # <%= bug.id %></h1>
+  <hr class="my-4">
+  <h4 class="">Bug_Title : <%= bug.bug_title %></h4>
+  <h6 class="">Bug_Deadline : <%= bug.deadline%></h6>
+  <p class="lead">
+  <% if current_user %>
+    <% if current_user.user_type == "developer" && bug.status =='new' %>
+      <%= link_to "Add Bug To Yourself", edit_project_bug_path(bug.project, bug), class:"btn btn-primary btn-lg" %>
+    <% end %>
+    <% if current_user.user_type == "developer" && current_user.id == bug.dev_id && bug.status =='started' %>
+      <%= link_to "Close bug", edit_project_bug_path(bug.project, bug), class:"btn btn-primary btn-lg" %>
+    <% end %>
+
+
+  <% end %>
+  </p>
+</div>
+<br>
