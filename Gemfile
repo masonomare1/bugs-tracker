@@ -53,6 +53,10 @@ gem 'faker'
 gem 'ransack'
 
 gem 'devise'
+gem 'pundit'
+
+
+gem 'rolify'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
