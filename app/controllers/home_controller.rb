@@ -2,7 +2,10 @@
 
 # this is the home controller
 class HomeController < ApplicationController
-  def index; end
+  def index
+    @projects = policy_scope(Project)
+    authorize @projects
+  end
 
   def show
     @projects = policy_scope(Project)

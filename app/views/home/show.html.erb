@@ -3,7 +3,6 @@
   <div class="row">
      <% @projects.each do |project| %>
     <div class="col-md-2"></div>
-
       <div class="col-md-8 pb-3">
       <div class="card">
         <div class="card-header">
@@ -11,8 +10,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title"> <%= project.title%> </h5>
-          <%= link_to 'add User', member_path(project), class:'btn btn-primary' %>
-
+          <%= link_to 'Add User to Project', member_path(project), class:'btn btn-primary' %>
         </div>
       </div>
     </div>

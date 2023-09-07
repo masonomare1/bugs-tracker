@@ -11,7 +11,6 @@ class ProjectPolicy < ApplicationPolicy
         @projects_dev = user.projects
         scope.where(title: @projects_dev.pluck(:title))
       else
-        Rails.logger.debug 'hello wrold'
         scope.where(title: 'c# winform project')
       end
     end

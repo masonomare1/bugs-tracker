@@ -1,4 +1,25 @@
 <br>
+<div class="container">
+  <div class="row">
+     <% @projects.each do |project| %>
+    <div class="col-md-2"></div>
+      <div class="col-md-8 pb-3">
+      <div class="card">
+        <div class="card-header">
+          Projects # <%= project.id%>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"> <%= project.title%> </h5>
+          <%= link_to 'Add User to Project', member_path(project), class:'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+    <% end %>
+  </div>
+</div>
+
+<br>
 <% if current_user %>
 <% if current_user.user_type == "manager" %>
 <div class="container ">
@@ -21,23 +42,11 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">Show Projects to Manager</h5>
-      <%= link_to 'Show Projects', projects_path, class:"btn btn-primary" %>
+      <%= link_to 'Create Projects', projects_path, class:"btn btn-primary" %>
     </div>
   </div>
 </div>
-<br>
 
-<div class="container ">
-  <div class="card text-center w-75">
-    <div class="card-header">
-      Create Project
-    </div>
-    <div class="card-body">
-      <h5 class="card-title">Manager create Project</h5>
-      <%= link_to 'Show Projects', projects_path, class:"btn btn-primary" %>
-    </div>
-  </div>
-</div>
 <%end  %>
 <%end  %>
 <br>
