@@ -33,6 +33,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       # t.datetime :locked_at
 
       t.string :name
+      # TODO: can we rename this to role
       t.string :user_type
 
       t.timestamps null: false

@@ -11,6 +11,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   # TODO: here we tell which user can see which post
+  # TODO: this should either return true or false
   def index?
     if user.user_type.in?(%w[qa manager developer])
       scope.all
@@ -22,8 +23,10 @@ class UserPolicy < ApplicationPolicy
   def show?
     return false unless user.user_type.in?(%w[qa manager developer])
 
+    # TODO: pundit action method should always return true or false
     scope.all
 
+    # TODO: is this needed
     # user.user_type.in?(%w[qa manager developer])
     # puts "User Roles: #{user.roles.map(&:name).join(', ')}"
     # result = user.user_type.in?(['qa', 'manager', 'developer'])
