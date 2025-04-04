@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-# this is policy controller
 class ProjectPolicy < ApplicationPolicy
-  # this is policy controller
   class Scope < Scope
     def resolve
       if user.user_type.in?(%w[qa manager])
